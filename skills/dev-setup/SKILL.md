@@ -25,8 +25,7 @@ Set up best-practice developer tooling in a JavaScript/TypeScript project. This 
 2. If no `package.json` is found, abort with: "No package.json found. Run this skill from the project root directory."
 3. Detect the package manager by checking lockfiles in this priority:
    - `pnpm-lock.yaml` → **pnpm**
-   - `yarn.lock` → **yarn**
-   - `package-lock.json` → **npm**
+   - `bun.lock` or `bun.lockb` → **bun**
    - Default to **pnpm** if none found.
 4. Read `package.json` to inspect existing `scripts`, `devDependencies`, and `lint-staged` config.
 
@@ -47,6 +46,7 @@ Scan the project for existing files that may conflict:
 | Husky pre-commit | `.husky/pre-commit` |
 | Husky pre-merge | `.husky/pre-merge` |
 | Commitizen config | `.czrc` |
+| Node version | `.node-version` |
 | lint-staged | `package.json` → `lint-staged` key |
 
 Build a conflict report listing every item that already exists.
@@ -65,9 +65,9 @@ For each item approved (or with no conflict):
 Copy from `assets/<category>/` to the target path relative to the project root:
 
 - `assets/eslint/eslint.config.js` → `eslint.config.js`
-- `assets/workflows/ci.yml` → `.github/workflows/ci.yml`
-- `assets/workflows/release.yml` → `.github/workflows/release.yml`
-- `assets/workflows/snapshot-release.yml` → `.github/workflows/snapshot-release.yml`
+- `assets/workflows/<pm>/ci.yml` → `.github/workflows/ci.yml`
+- `assets/workflows/<pm>/release.yml` → `.github/workflows/release.yml`
+- `assets/workflows/<pm>/snapshot-release.yml` → `.github/workflows/snapshot-release.yml`
 - `assets/templates/PULL_REQUEST_TEMPLATE.md` → `.github/PULL_REQUEST_TEMPLATE.md`
 - `assets/templates/ISSUE_TEMPLATE/bug_report.md` → `.github/ISSUE_TEMPLATE/bug_report.md`
 - `assets/templates/ISSUE_TEMPLATE/feature_request.md` → `.github/ISSUE_TEMPLATE/feature_request.md`
@@ -76,6 +76,11 @@ Copy from `assets/<category>/` to the target path relative to the project root:
 - `assets/husky/pre-commit` → `.husky/pre-commit`
 - `assets/husky/pre-merge` → `.husky/pre-merge`
 - `assets/cz-emoji/.czrc` → `.czrc`
+- `assets/node-version/.node-version` → `.node-version`
+
+Where `<pm>` is the detected package manager (`pnpm` or `bun`).
+
+**Template substitution:** The husky scripts (`pre-commit`, `pre-merge`) contain the placeholder `{{PACKAGE_MANAGER}}`, which must be replaced with the detected package manager name before copying.
 
 Ensure target directories exist before copying.
 
@@ -84,12 +89,13 @@ Ensure target directories exist before copying.
 Add the following keys **only if they do not already exist or if overwrite was approved**:
 
 **Scripts:**
+Replace `<package_manager>` with the detected package manager name.
 ```json
 {
-  "ci:version": "pnpm changeset version",
-  "ci:publish": "pnpm run build && pnpm changeset publish",
-  "ci:snapshot": "pnpm changeset version --snapshot snapshot",
-  "ci:prerelease": "pnpm run build && pnpm changeset publish --no-git-tag --snapshot",
+  "ci:version": "<package_manager> changeset version",
+  "ci:publish": "<package_manager> run build && <package_manager> changeset publish",
+  "ci:snapshot": "<package_manager> changeset version --snapshot snapshot",
+  "ci:prerelease": "<package_manager> run build && <package_manager> changeset publish --no-git-tag --snapshot",
   "lint:fix": "eslint . --fix",
   "prepare": "husky install"
 }
@@ -126,8 +132,7 @@ If `--force` is active:
 
 Execute the detected package manager's install command:
 - **pnpm**: `pnpm install`
-- **yarn**: `yarn install`
-- **npm**: `npm install`
+- **bun**: `bun install`
 
 If install fails, capture stderr, display a concise error, and advise the user to run install manually.
 

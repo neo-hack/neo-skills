@@ -4,7 +4,7 @@
 check_run() {
 	if [ $(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep -c "package.json") -gt 0 ]
 	then
-		pnpm install
+		{{PACKAGE_MANAGER}} install
 	fi
 }
 
