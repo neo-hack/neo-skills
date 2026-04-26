@@ -15,7 +15,7 @@ Set up best-practice developer tooling in a JavaScript/TypeScript project. This 
   - **Asset files**: overwrite unconditionally.
   - **`package.json` scripts**: merge new scripts; overwrite existing keys with skill defaults.
   - **`package.json` devDependencies**: merge new dependencies; if a version conflict exists, keep the higher semver version. If unparseable, overwrite with skill default.
-  - **`package.json` lint-staged**: overwrite with skill default.
+  - **lint-staged config**: overwrite unconditionally.
 
 ## Execution Workflow
 
@@ -27,7 +27,7 @@ Set up best-practice developer tooling in a JavaScript/TypeScript project. This 
    - `pnpm-lock.yaml` → **pnpm**
    - `bun.lock` or `bun.lockb` → **bun**
    - Default to **pnpm** if none found.
-4. Read `package.json` to inspect existing `scripts`, `devDependencies`, and `lint-staged` config.
+4. Read `package.json` to inspect existing `scripts` and `devDependencies`.
 
 ### Check Existing Configs
 
@@ -45,8 +45,8 @@ Scan the project for existing files that may conflict:
 | Changeset config | `.changeset/config.json` |
 | Husky pre-commit | `.husky/pre-commit` |
 | Husky pre-merge | `.husky/pre-merge` |
+| lint-staged config | `.lintstagedrc` |
 | dotfiles | `.czrc`, `.node-version` |
-| lint-staged | `package.json` → `lint-staged` key |
 
 Build a conflict report listing every item that already exists.
 
@@ -74,6 +74,7 @@ Copy from `assets/<category>/` to the target path relative to the project root:
 - `assets/changeset/README.md` → `.changeset/README.md`
 - `assets/husky/pre-commit` → `.husky/pre-commit`
 - `assets/husky/pre-merge` → `.husky/pre-merge`
+- `assets/lint-staged/lintstagedrc` → `.lintstagedrc`
 - `assets/dotfiles/cz-rc` → `.czrc`
 - `assets/dotfiles/node-version` → `.node-version`
 
@@ -100,15 +101,6 @@ Replace `<package_manager>` with the detected package manager name.
 }
 ```
 
-**lint-staged:**
-```json
-{
-  "lint-staged": {
-    "**/**/*.{js,ts,tsx,json,yml,yaml,md}": ["eslint --fix"]
-  }
-}
-```
-
 **devDependencies:**
 ```json
 {
@@ -125,7 +117,6 @@ Replace `<package_manager>` with the detected package manager name.
 If `--force` is active:
 - For scripts: overwrite existing keys with skill defaults.
 - For devDependencies: keep the higher semver version when conflicting. If unparseable, use skill default.
-- For lint-staged: overwrite unconditionally.
 
 ### Run Package Install
 
