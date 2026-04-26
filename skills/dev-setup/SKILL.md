@@ -82,6 +82,8 @@ Where `<pm>` is the detected package manager (`pnpm` or `bun`).
 
 **Template substitution:** The husky scripts (`pre-commit`, `pre-merge`) contain the placeholder `{{PACKAGE_MANAGER}}`, which must be replaced with the detected package manager name before copying.
 
+**Make husky scripts executable:** After copying, run `chmod +x` on `.husky/pre-commit` and `.husky/pre-merge`.
+
 Ensure target directories exist before copying.
 
 ### Edit package.json
