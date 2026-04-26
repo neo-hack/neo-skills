@@ -1,8 +1,7 @@
 {
   "name": "neo-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Collection of reusable AI skills for automated JavaScript/TypeScript project setup, including ESLint, CI/CD workflows, changesets, git hooks, and commit conventions.",
-  "private": true,
   "scripts": {},
   "devDependencies": {}
 }

@@ -35,7 +35,7 @@ Scan the project for existing files that may conflict:
 
 | Asset | Target Path |
 |-------|-------------|
-| ESLint config | `eslint.config.js` |
+| ESLint config | `eslint.config.mjs` |
 | CI workflow | `.github/workflows/ci.yml` |
 | Release workflow | `.github/workflows/release.yml` |
 | Snapshot release workflow | `.github/workflows/snapshot-release.yml` |
@@ -63,7 +63,7 @@ For each item approved (or with no conflict):
 
 Copy from `assets/<category>/` to the target path relative to the project root:
 
-- `assets/eslint/eslint.config.js` → `eslint.config.js`
+- `assets/eslint/eslint.config.mjs` → `eslint.config.mjs`
 - `assets/workflows/<pm>/ci.yml` → `.github/workflows/ci.yml`
 - `assets/workflows/<pm>/release.yml` → `.github/workflows/release.yml`
 - `assets/workflows/<pm>/snapshot-release.yml` → `.github/workflows/snapshot-release.yml`
@@ -108,7 +108,7 @@ Replace `<package_manager>` with the detected package manager name.
 {
   "typescript": "^4.6.4",
   "eslint": "^10.2.1",
-  "@aiou/eslint-config": "^2.2.0",
+  "@aiou/eslint-config": "^3.0.0",
   "lint-staged": "^13.1.0",
   "@changesets/cli": "^2.26.0",
   "husky": "^8.0.3",
