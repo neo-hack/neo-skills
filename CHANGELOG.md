@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **dev-setup**: Upgraded `@aiou/eslint-config` from `^2.2.0` to `^3.0.0`.
+- **dev-setup**: Upgraded `@aiou/eslint-config` from `^2.2.0` to `^3.0.1`.
 - **dev-setup**: Renamed ESLint config asset from `eslint.config.js` (CJS) to `eslint.config.mjs` (ESM) with top-level `await`.
 
 ## [0.2.0] - 2026-04-26

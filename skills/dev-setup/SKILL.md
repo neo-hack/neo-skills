@@ -108,7 +108,7 @@ Replace `<package_manager>` with the detected package manager name.
 {
   "typescript": "^4.6.4",
   "eslint": "^10.2.1",
-  "@aiou/eslint-config": "^3.0.0",
+  "@aiou/eslint-config": "^3.0.1",
   "lint-staged": "^13.1.0",
   "@changesets/cli": "^2.26.0",
   "husky": "^8.0.3",
