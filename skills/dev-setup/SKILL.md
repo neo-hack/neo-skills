@@ -45,8 +45,7 @@ Scan the project for existing files that may conflict:
 | Changeset config | `.changeset/config.json` |
 | Husky pre-commit | `.husky/pre-commit` |
 | Husky pre-merge | `.husky/pre-merge` |
-| Commitizen config | `.czrc` |
-| Node version | `.node-version` |
+| dotfiles | `.czrc`, `.node-version` |
 | lint-staged | `package.json` → `lint-staged` key |
 
 Build a conflict report listing every item that already exists.
@@ -75,8 +74,8 @@ Copy from `assets/<category>/` to the target path relative to the project root:
 - `assets/changeset/README.md` → `.changeset/README.md`
 - `assets/husky/pre-commit` → `.husky/pre-commit`
 - `assets/husky/pre-merge` → `.husky/pre-merge`
-- `assets/cz-emoji/.czrc` → `.czrc`
-- `assets/node-version/.node-version` → `.node-version`
+- `assets/dotfiles/cz-rc` → `.czrc`
+- `assets/dotfiles/node-version` → `.node-version`
 
 Where `<pm>` is the detected package manager (`pnpm` or `bun`).
 
