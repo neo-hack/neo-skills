@@ -114,8 +114,8 @@ Replace `<package_manager>` with the detected package manager name.
 ```json
 {
   "typescript": "^4.6.4",
-  "eslint": "^8.56.0",
-  "@aiou/eslint-config": "^1.2.1",
+  "eslint": "^10.2.1",
+  "@aiou/eslint-config": "^2.2.0",
   "lint-staged": "^13.1.0",
   "@changesets/cli": "^2.26.0",
   "husky": "^8.0.3",
