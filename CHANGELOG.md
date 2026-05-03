@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.1] - 2026-05-03
+
+### Fixed
+
+- **dev-setup**: Fixed changeset CLI usage across all workflow files.
+  - Updated `@changesets/cli` from `^2.26.0` to `^2.31.0`.
+  - Fixed `config.json` schema version to match CLI version (`@changesets/config@3.1.4`).
+  - Removed incorrect `changeset pre enter snapshot` from snapshot workflows.
+  - Fixed `publish --snapshot` to correct `publish --tag snapshot`.
+  - Corrected `--no-git-tag` flag usage.
+
 ## [0.4.0] - 2026-05-03
 
 ### Changed

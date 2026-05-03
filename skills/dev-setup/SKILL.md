@@ -97,7 +97,7 @@ Replace `<package_manager>` with the detected package manager name.
   "ci:version": "<package_manager> changeset version",
   "ci:publish": "<package_manager> run build && <package_manager> changeset publish",
   "ci:snapshot": "<package_manager> changeset version --snapshot snapshot",
-  "ci:prerelease": "<package_manager> run build && <package_manager> changeset publish --no-git-tag --snapshot",
+  "ci:prerelease": "<package_manager> run build && <package_manager> changeset publish --no-git-tag --tag snapshot",
   "lint:fix": "eslint . --fix",
   "prepare": "husky install"
 }
@@ -110,7 +110,7 @@ Replace `<package_manager>` with the detected package manager name.
   "eslint": "^10.2.1",
   "@aiou/eslint-config": "^3.1.0",
   "lint-staged": "^13.1.0",
-  "@changesets/cli": "^2.26.0",
+  "@changesets/cli": "^2.31.0",
   "husky": "^8.0.3",
   "cz-emoji": "^1.3.1"
 }

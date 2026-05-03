@@ -60,7 +60,6 @@ jobs:
       - name: create and publish versions
         run: |
           bun ci:snapshot
-          bun changeset pre enter snapshot
           bun ci:prerelease
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
