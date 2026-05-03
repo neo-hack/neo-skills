@@ -106,9 +106,9 @@ Replace `<package_manager>` with the detected package manager name.
 **devDependencies:**
 ```json
 {
-  "typescript": "^4.6.4",
+  "typescript": "^5.9.3",
   "eslint": "^10.2.1",
-  "@aiou/eslint-config": "^3.0.2",
+  "@aiou/eslint-config": "^3.1.0",
   "lint-staged": "^13.1.0",
   "@changesets/cli": "^2.26.0",
   "husky": "^8.0.3",

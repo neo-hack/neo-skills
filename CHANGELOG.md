@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-05-03
+
+### Changed
+
+- **dev-setup**: Upgraded `@aiou/eslint-config` from `^3.0.2` to `^3.1.0`.
+- **dev-setup**: Upgraded `typescript` from `^4.6.4` to `^5.9.3`.
+
 ## [0.3.1] - 2026-04-26
 
 ### Changed
